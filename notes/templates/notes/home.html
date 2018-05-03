@@ -1,0 +1,117 @@
+{% load static %}
+{% include "main.html" %}
+<title>End Prep</title>
+<style>
+	.myWell{
+		margin-right: 0;
+		margin-left: 0;
+	}
+</style>
+</head>
+
+<body>
+	{% include "homeheader.html" %}
+	<div class="container content">
+		<div class="row">
+			<div class="col-md-1"></div>
+			<div class="col-md-10">
+				<form action="{% url 'search' %}">
+					<div class="input-group">
+						<input style="height: 50px;" type="text" name="search" class="form-control"  placeholder="Search any topic here....(For e.g. pointer, class, sonet)" aria-describedby="basic-addon2">
+						<span class="input-group-btn">
+							<input style="height: 50px;" class="btn btn-default" type="submit" value="Search!">
+						</span>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-1"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<h3 style="text-align: center;">LeaderBoard</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12" style="border: 1px solid white">
+					<marquee>
+					{% for user in users %}
+						{% if user.picture %}
+							<img src="{{user.picture}}" width="50" height="50">
+						{% else %}
+							<img src="https://openclipart.org/image/2400px/svg_to_png/211821/matt-icons_preferences-desktop-personal.png" width="50" height="50">
+						{% endif %}
+						<span style="overflow:hidden">{{user.name}}</span>
+					{% endfor %}
+					</marquee>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12" style="border: 1px solid white">
+					<h2 style="text-align:center">Those end moment preparations, for us hardworking students :D</h2>
+					<h5 style="text-align:center">Notes or content is uploaded firstly subject wise then chapter wise.</h5>
+					<h5 style="text-align:center">There is a search bar in which you can search the topic name and the notes related to that topic will be shown.</h5>
+					<h5 style="text-align:center">For uploading a file or downloading or like/comment on someone's file you need to login first.</h5>
+					<h4 style="text-align:center"><i>Happy Learning!!!</i></h4>
+				</ul>
+			</div>
+		</div>		
+
+
+		<div class="row">
+			<a href="{% url 'topics' %} subjects[0].name %}">
+				<div class="col-md-6 myWell">
+					<div class="image">
+						<img src="{{subjects[0].picture}}" width="100%">
+					</div>
+					<h3 class="text-center">{{subjects[0].name}}</h3>
+				</div>
+			</a>
+			<a href="{% url 'topics' subjects[1].name %}">
+				<div class="col-md-6 myWell">
+					<div class="image">
+						<img src="{{subjects[1].picture}}" width="100%">
+					</div>
+					<h3 class="text-center">{{subjects[1].name}}</h3>
+				</div>
+			</a>
+		</div>
+		<div class="row">
+			<a href="{% url 'topics' subjects[2].name %}">
+				<div class="col-md-6 myWell">
+					<div class="image">
+						<img src="{{subjects[2].picture}}" width="100%">
+					</div>
+					<h3 class="text-center">{{subjects[2].name}}</h3>
+				</div>
+			</a>
+			<a href="{% url 'topics' subjects[3].name %}">
+				<div class="col-md-6 myWell">
+					<div class="image">
+						<img src="{{subjects[3].picture}}" width="100%">
+					</div>
+					<h3 class="text-center">{{subjects[3].name}}</h3>
+				</div>
+			</a>
+		</div>
+		<div class="row">
+			<a href="{% url 'topics' subjects[4].name %}">
+				<div class="col-md-6 myWell">
+					<div class="image">
+						<img src="{{subjects[4].picture}}">
+					</div>
+					<h3 class="text-center">{{subjects[4].name}}</h3>
+				</div>
+			</a>
+			<a href="{% url 'topics' subjects[5].name %}">
+				<div class="col-md-6 myWell">
+					<div class="image">
+						<img src="{{subjects[5].picture}}">
+					</div>
+					<h3 class="text-center">{{subjects[5].name}}</h3>
+				</div>
+			</a>
+		</div>
+	</div>
+</body>
+
+</html>
