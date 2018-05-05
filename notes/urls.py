@@ -3,5 +3,9 @@ from . import views
 
 app_name = 'notes'
 urlpatterns = [
-    path('', views.home, name='home'),
+    path('', views.homeHandler, name='homeHandler'),
+    path('login/', views.login, name='login'),
+    path('map/', views.map, name='map'),
+    path('<subject>/topics/', views.topics, name='topics'),
+    path('search/', views.search, name='search'),
 ]

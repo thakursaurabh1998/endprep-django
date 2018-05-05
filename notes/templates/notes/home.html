@@ -1,5 +1,5 @@
 {% load static %}
-{% include "main.html" %}
+{% include "notes/main.html" %}
 <title>End Prep</title>
 <style>
 	.myWell{
@@ -10,12 +10,12 @@
 </head>
 
 <body>
-	{% include "homeheader.html" %}
+	{% include "notes/homeheader.html" %}
 	<div class="container content">
 		<div class="row">
 			<div class="col-md-1"></div>
 			<div class="col-md-10">
-				<form action="{% url 'search' %}">
+				<form action="{% url 'notes:search' %}">
 					<div class="input-group">
 						<input style="height: 50px;" type="text" name="search" class="form-control"  placeholder="Search any topic here....(For e.g. pointer, class, sonet)" aria-describedby="basic-addon2">
 						<span class="input-group-btn">
@@ -58,56 +58,56 @@
 
 
 		<div class="row">
-			<a href="{% url 'topics' %} subjects[0].name %}">
+			<a href="{% url 'notes:topics' subjects.0.name %}">
 				<div class="col-md-6 myWell">
 					<div class="image">
-						<img src="{{subjects[0].picture}}" width="100%">
+						<img src="{{subjects.0.picture}}" width="100%">
 					</div>
-					<h3 class="text-center">{{subjects[0].name}}</h3>
+					<h3 class="text-center">{{subjects.0.name}}</h3>
 				</div>
 			</a>
-			<a href="{% url 'topics' subjects[1].name %}">
+			<a href="{% url 'notes:topics' subjects.1.name %}">
 				<div class="col-md-6 myWell">
 					<div class="image">
-						<img src="{{subjects[1].picture}}" width="100%">
+						<img src="{{subjects.1.picture}}" width="100%">
 					</div>
-					<h3 class="text-center">{{subjects[1].name}}</h3>
-				</div>
-			</a>
-		</div>
-		<div class="row">
-			<a href="{% url 'topics' subjects[2].name %}">
-				<div class="col-md-6 myWell">
-					<div class="image">
-						<img src="{{subjects[2].picture}}" width="100%">
-					</div>
-					<h3 class="text-center">{{subjects[2].name}}</h3>
-				</div>
-			</a>
-			<a href="{% url 'topics' subjects[3].name %}">
-				<div class="col-md-6 myWell">
-					<div class="image">
-						<img src="{{subjects[3].picture}}" width="100%">
-					</div>
-					<h3 class="text-center">{{subjects[3].name}}</h3>
+					<h3 class="text-center">{{subjects.1.name}}</h3>
 				</div>
 			</a>
 		</div>
 		<div class="row">
-			<a href="{% url 'topics' subjects[4].name %}">
+			<a href="{% url 'notes:topics' subjects.2.name %}">
 				<div class="col-md-6 myWell">
 					<div class="image">
-						<img src="{{subjects[4].picture}}">
+						<img src="{{subjects.2.picture}}" width="100%">
 					</div>
-					<h3 class="text-center">{{subjects[4].name}}</h3>
+					<h3 class="text-center">{{subjects.2.name}}</h3>
 				</div>
 			</a>
-			<a href="{% url 'topics' subjects[5].name %}">
+			<a href="{% url 'notes:topics' subjects.3.name %}">
 				<div class="col-md-6 myWell">
 					<div class="image">
-						<img src="{{subjects[5].picture}}">
+						<img src="{{subjects.3.picture}}" width="100%">
 					</div>
-					<h3 class="text-center">{{subjects[5].name}}</h3>
+					<h3 class="text-center">{{subjects.3.name}}</h3>
+				</div>
+			</a>
+		</div>
+		<div class="row">
+			<a href="{% url 'notes:topics' subjects.4.name %}">
+				<div class="col-md-6 myWell">
+					<div class="image">
+						<img src="{{subjects.4.picture}}">
+					</div>
+					<h3 class="text-center">{{subjects.4.name}}</h3>
+				</div>
+			</a>
+			<a href="{% url 'notes:topics' subjects.5.name %}">
+				<div class="col-md-6 myWell">
+					<div class="image">
+						<img src="{{subjects.5.picture}}">
+					</div>
+					<h3 class="text-center">{{subjects.5.name}}</h3>
 				</div>
 			</a>
 		</div>

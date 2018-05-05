@@ -10,10 +10,10 @@
             <div class="col-md-12">
                 <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
                     <!-- Brand and toggle get grouped for better mobile display -->
-                    <a href="{% url 'homeHandler' %}">
+                    <a href="{% url 'notes:homeHandler' %}">
                         <div class="navbar-header left-p">
                             <img alt="Brand" class="avatar" src="{% static 'images/book.jpg' %}">
-                            <a href="{% url 'homeHandler' %}" class="navbar-brand">End Prep</a>
+                            <a href="{% url 'notes:homeHandler' %}" class="navbar-brand">End Prep</a>
                             <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse"
                                 type="button">
                                 <span class="sr-only">Toggle navigation</span>
@@ -27,19 +27,19 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right right-p">
                             <li>
-                                <a href="{% url 'home' %}">
+                                <a href="{% url 'notes:homeHandler' %}">
                                     <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
                                 </a>
                             </li>
                             <li>
                                 {% if 'username' in session %}
-                                <a href="{% url 'disconnect' }">Logout</a>
+                                <a href="{% url 'notes:disconnect' }">Logout</a>
                                 {% else %}
-                                <a href="{% url 'login' %}">Login</a>
+                                <a href="{% url 'notes:login' %}">Login</a>
                                 {% endif %}
                             </li>
                             <li>
-                                <a href="{% url 'map' %}">Show BookStores</a>
+                                <a href="{% url 'notes:map' %}">Show BookStores</a>
                             </li>
                             <li class="dropdown">
                                 <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">Categories
@@ -48,11 +48,12 @@
                                 <ul class="dropdown-menu">
                                     {% for i in subjects %}
                                     <li>
-                                        <a href="{% url 'topics' i.name %}">{{i.name}}</a>
+                                        <a href="{% url 'notes:topics' i.name %}">{{i.name}}</a>
                                     </li>
                                     {% endfor %}
                                 </ul>
                             </li>
+                            {% comment %}
                             {% if 'username' in session %}
                             <li>
                                 <a href="#">{{session['username']}}</a>
@@ -61,6 +62,7 @@
                                 <img class="avatar" src="{{session['picture']}}">
                             </li>
                             {% endif %}
+                            {% endcomment %}
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->
@@ -69,7 +71,7 @@
         </div>
     </div>
 </div>
-
+{% comment %}
 {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
 <div class="row" style="margin: 0;">
     <div class="col-md-12">
@@ -81,3 +83,4 @@
     </div>
 </div>
 {% endfor %} {% endif %} {% endwith %}
+{% endcomment %}
