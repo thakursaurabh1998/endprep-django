@@ -33,8 +33,9 @@ class Chapter(models.Model):
 class File(models.Model):
     name = models.CharField(max_length=200)
     file_name = models.CharField(max_length=200)
+    upload = models.FileField(upload_to='uploads/',default='files')
     rating = models.IntegerField(default=0)
-    time = models.CharField(max_length=200)
+    time = models.CharField(max_length=200, default=datetime.datetime.now())
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):

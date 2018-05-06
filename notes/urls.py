@@ -8,4 +8,6 @@ urlpatterns = [
     path('map/', views.map, name='map'),
     path('<subject>/topics/', views.topics, name='topics'),
     path('search/', views.search, name='search'),
+    path('<subject>/upload/', views.upload, name='upload'),
+    path('<subject>/<chapter>/topics/', views.files, name='files'),
 ]
