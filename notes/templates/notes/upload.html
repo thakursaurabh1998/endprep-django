@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="row form">
-            <form method=post action="{% url 'notes:upload' subject %}" enctype=multipart/form-data>
+            <form method="POST" action="{% url 'notes:upload' subject %}" enctype="multipart/form-data">
                 {% csrf_token %}
                 <table>
                     {{form}}

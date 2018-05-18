@@ -37,7 +37,8 @@ class File(models.Model):
     rating = models.IntegerField(default=0)
     time = models.CharField(max_length=200, default=datetime.datetime.now())
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
-
+    chapter_id = models.ForeignKey(Chapter, on_delete=models.CASCADE, default='1')
+    subject_id = models.ForeignKey(Subject, on_delete=models.CASCADE, default='1')
     def __str__(self):
         return self.file_name
 

@@ -10,4 +10,6 @@ urlpatterns = [
     path('search/', views.search, name='search'),
     path('<subject>/upload/', views.upload, name='upload'),
     path('<subject>/<chapter>/topics/', views.files, name='files'),
+    path('accessfile/<filename>/', views.access_file, name='access_file'),
+    path('download/<filename>', views.uploaded_file, name='uploaded_file'),
 ]
