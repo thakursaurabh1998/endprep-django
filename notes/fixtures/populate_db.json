@@ -1,0 +1,125 @@
+[
+  {
+    "model": "notes.user",
+    "fields": {
+        "name":"Saurabh Thakur",
+        "email":"thakursaurabh1998@gmail.com",
+        "picture":"https://avatars3.githubusercontent.com/u/18613564?s=400&v=4",
+        "rating":3
+    }
+  },
+  {
+    "model": "notes.user",
+    "fields": {
+      "name": "Rishab Thakur",
+      "email": "thakurrishab2000@gmail.com",
+      "picture": "https://avatars0.githubusercontent.com/u/25671488?s=400&v=4",
+      "rating": 2
+    }
+  },
+  {
+    "model": "notes.user",
+    "fields": {
+      "name": "Dan Abramov",
+      "email": "gaearon@gmail.com",
+      "picture": "https://avatars0.githubusercontent.com/u/810438?s=400&v=4",
+      "rating": 1
+    }
+  },
+  {
+      "model": "notes.subject",
+      "pk": 1,
+      "fields": {
+          "name": "Computer Networking",
+          "picture": "https://fthmb.tqn.com/XdZgKpmI19Clz49VkA2d_SCAafY=/768x0/filters:no_upscale():max_bytes(150000):strip_icc()/computer-network-alex-slobodkin-e-plus-getty-images-56a6fab03df78cf772913eff.jpg"
+      }
+  },
+  {
+      "model": "notes.subject",
+      "pk": 2,
+      "fields": {
+          "name": "Operating System",
+          "picture": "https://www.computerhope.com/issues/pictures/operating-system-install.jpg"
+      }
+  },
+  {
+      "model": "notes.subject",
+      "pk": 3,
+      "fields": {
+          "name": "Computer Architecture",
+          "picture": "https://www.edx.org/sites/default/files/course/image/promoted/mitx_6.004.2x_378x225.jpg"
+      }
+  },
+  {
+      "model": "notes.subject",
+      "pk": 4,
+      "fields": {
+          "name": "C++",
+          "picture": "http://res.cloudinary.com/mftgilancom/image/upload/v1494491628/ICT-DPT/c--logo-icon-0_tijqtg.png"
+      }
+  },
+  {
+      "model": "notes.subject",
+      "pk": 5,
+      "fields": {
+          "name": "Digital Electronics",
+          "picture": "http://www.wilsontande.net/images/debanner.png"
+      }
+  },
+  {
+      "model": "notes.subject",
+      "pk": 6,
+      "fields": {
+          "name": "Python",
+          "picture": "https://cdn-images-1.medium.com/max/1200/1*PPIp7twJJUknfohZqtL8pQ.png"
+      }
+  },
+  {
+      "model": "notes.chapter",
+      "fields": {
+          "title": "Intro to networking",
+          "about": "Introduction to the subject.",
+          "subject_name": 1
+      }
+  },
+  {
+      "model": "notes.chapter",
+      "fields": {
+          "title": "Intro to OS",
+          "about": "Introduction to the subject.",
+          "subject_name": 2
+      }
+  },
+  {
+      "model": "notes.chapter",
+      "fields": {
+          "title": "Intro Computer Architecture",
+          "about": "Introduction to the subject.",
+          "subject_name": 3
+      }
+  },
+  {
+      "model": "notes.chapter",
+      "fields": {
+          "title": "Intro to C++",
+          "about": "Introduction to the subject.",
+          "subject_name": 4
+      }
+  },
+  {
+      "model": "notes.chapter",
+      "fields": {
+          "title": "Intro to Digital Electronics",
+          "about": "Introduction to the subject.",
+          "subject_name": 5
+      }
+  },
+  {
+      "model": "notes.chapter",
+      "fields": {
+          "title": "Intro to Python",
+          "about": "Introduction to the subject.",
+          "subject_name": 6
+      }
+  }
+]

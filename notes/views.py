@@ -1,9 +1,11 @@
+from django.http import HttpResponse
 from django.shortcuts import render, reverse, redirect, get_object_or_404, get_list_or_404
-from .models import User, Subject, Comment, Chapter, File, Topic
 from django.views.decorators.http import require_http_methods
 from django.core.files.storage import FileSystemStorage
-from django.http import HttpResponse
+from .models import User, Subject, Chapter, File, Topic
 from . import forms
+
+
 # Create your views here.
 
 subjects = get_list_or_404(Subject)
@@ -11,6 +13,7 @@ subjects = get_list_or_404(Subject)
 
 @require_http_methods(['GET', 'POST'])
 def homeHandler(request):
+    """Home page handler"""
     users = get_list_or_404(User.objects.order_by('-rating'))[:3]
     return render(request, 'notes/home.html', {
         'subjects': subjects,
@@ -44,6 +47,7 @@ def topics(request, subject):
 
 @require_http_methods(['GET', 'POST'])
 def upload(request, subject):
+    """upload page request method"""
     chapters = Chapter.objects.filter(
         subject_name__name__iexact=subject
     ).all()
@@ -60,7 +64,7 @@ def upload(request, subject):
             ))
             use = get_object_or_404(User.objects.filter(pk=1))
             keywords = f['topics']
-            keyArr = keywords.split(',')
+            key_arr = keywords.split(',')
             instance = File(
                 name=f['filename'],
                 file_name=request.FILES['file'],
@@ -71,7 +75,7 @@ def upload(request, subject):
             )
             instance.save()
             instance.refresh_from_db()
-            for i in keyArr:
+            for i in key_arr:
                 key = Topic(
                     title=i,
                     file_id=instance,
