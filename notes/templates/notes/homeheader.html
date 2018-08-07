@@ -10,10 +10,10 @@
             <div class="col-md-12">
                 <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
                     <!-- Brand and toggle get grouped for better mobile display -->
-                    <a href="{% url 'notes:homeHandler' %}">
+                    <a href="{% url 'notes:home_handler' %}">
                         <div class="navbar-header left-p">
                             <img alt="Brand" class="avatar" src="{% static 'images/book.jpg' %}">
-                            <a href="{% url 'notes:homeHandler' %}" class="navbar-brand">End Prep</a>
+                            <a href="{% url 'notes:home_handler' %}" class="navbar-brand">End Prep</a>
                             <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse"
                                 type="button">
                                 <span class="sr-only">Toggle navigation</span>
@@ -27,7 +27,7 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right right-p">
                             <li>
-                                <a href="{% url 'notes:homeHandler' %}">
+                                <a href="{% url 'notes:home_handler' %}">
                                     <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
                                 </a>
                             </li>
@@ -39,7 +39,7 @@
                                 {% endif %}
                             </li>
                             <li>
-                                <a href="{% url 'notes:map' %}">Show BookStores</a>
+                                <a href="{% url 'notes:maps' %}">Show BookStores</a>
                             </li>
                             <li class="dropdown">
                                 <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">Categories

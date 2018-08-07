@@ -1,9 +1,9 @@
-{% include "main.html" %}
+{% load static %} {% include "notes/main.html" %}
 <title>Comments</title>
 </head>
 
 <body>
-	{% include "header.html" %}
+	{% include "notes/header.html" %}
 	<div class="container content">
 		<div class="row">
 			<div class="col-md-6">
@@ -16,12 +16,12 @@
 				<hr>
 				<h4>Topics Covered: </h4>
 				<h5>
-					{% for topic in topics %} {{topic.title}}, {% endfor %}
+					{% for topic in topics %} {{topic.title}}  {% endfor %}
 				</h5>
 			</div>
-			
+
 			<div class="col-md-6">
-				<a href="{{url_for('uploaded_file',filename=fdata.file_name)}}">
+				<a href="{% url 'notes:download_file' fdata.file_name %}">
 					<button class="btn btn-primary" type="submit" style="width: 162px;">
 						<span style="padding: 10px;">Download </span>
 						<span class="glyphicon glyphicon-download-alt"></span>
@@ -47,7 +47,7 @@
 				<h2>Comments</h2>
 			</div>
 		</div>
-		<form method="post" action="{{url_for('access_file', filename=fdata.name)}}">
+		<form method="post" action="{% url 'notes:download_file' fdata.name %}">
 			<div class="row">
 				<div class="col-md-8 placeholder">
 					<textarea rows="6" cols="50" name="comment" placeholder="Add Comment..."></textarea>
@@ -61,14 +61,14 @@
 			{% for comment in comments %}
 			<div class="col-md-8 placeholder" style="margin-bottom: 15px;background: white;">
 				<b>
-					<i>{{comment.User.name}}</i>
+					<i>{{comment.user_id.name}}</i>
 				</b>
 				<br>
-				<i>{{comment.User.email}}</i>
+				<i>{{comment.user_id.email}}</i>
 				<hr>
-				<p style="word-wrap: break-word;">{{comment.Comment.data}}</p>
-				<i>Time: {{comment.Comment.time[:19]}}</i>&ensp;&ensp;&ensp;&ensp;
-				<a class="placeholder" href="{{url_for('deleteComment',id = comment.Comment.id)}}">
+				<p style="word-wrap: break-word;">{{comment.data}}</p>
+				<i>Time: {{comment.time | slice:":19" }} </i>&ensp;&ensp;&ensp;&ensp;
+				<a class="placeholder" href="#">
 					<button class="glyphicon glyphicon-trash"></button>
 				</a>
 			</div>
@@ -76,64 +76,66 @@
 		</div>
 	</div>
 	<script>
-		"{% if 'username' not in login_session %}"
-			$('#comment-btn').click(function(){
-				$(this).val('Comment (You have to login first!)');
-				return false;
-			});
-		"{% endif %}"
-		$(function(){
-			document.getElementById('btnbtn').value = 'star';
-			$('#btnbtn').on('click',like);
-		})
-		function like() {
-			var btn = document.getElementById('btnbtn');
-			that = $('#btnbtn');
-			that.off('click');
-			if(btn.value=='star') {
-				$.ajax({
-					method: 'PUT',
-					url: "{{ url_for('like', filename = filename) }}",
-					success: (response) => {
-						btn.value = 'unstar';
-						if (response == '/login') {
-							window.location.replace(response);
-							return false;
-						}
-						$('#star').text(` Unstar(${response})`);
-						btn.style.backgroundColor = '#fff';
-						btn.style.color = '#f0ad4e';
-						btn.style.borderColor = '#fff';
-					}
-				}).done(()=>{
-					that.on('click',like);
-				});
-			}
-			else {
-				$.ajax({
-					method: 'DELETE',
-					url: "{{ url_for('like', filename = filename) }}",
-					success: (response) => {
-						btn.value = 'star';
-						if(response=='/login'){
-							window.location.replace(response);
-							return false;
-						}
-						$('#star').text(` Star(${response})`);
-						btn.style.backgroundColor = '#f0ad4e';
-						btn.style.color = '#fff';
-						btn.style.borderColor = '#f0ad4e';
-					}
-				}).done(()=>{
-					that.on('click',like);
-				});
-			}
-		}
+		"{% comment %}"
+		// "{% if 'username' not in login_session %}"
+		// $('#comment-btn').click(function () {
+		// 	$(this).val('Comment (You have to login first!)');
+		// 	return false;
+		// });
+		// "{% endif %}"
+		// $(function () {
+		// 	document.getElementById('btnbtn').value = 'star';
+		// 	$('#btnbtn').on('click', like);
+		// })
+		// function like() {
+		// 	var btn = document.getElementById('btnbtn');
+		// 	that = $('#btnbtn');
+		// 	that.off('click');
+		// 	if (btn.value == 'star') {
+		// 		$.ajax({
+		// 			method: 'PUT',
+		// 			url: "{{ url_for('like', filename = filename) }}",
+		// 			success: (response) => {
+		// 				btn.value = 'unstar';
+		// 				if (response == '/login') {
+		// 					window.location.replace(response);
+		// 					return false;
+		// 				}
+		// 				$('#star').text(` Unstar(${response})`);
+		// 				btn.style.backgroundColor = '#fff';
+		// 				btn.style.color = '#f0ad4e';
+		// 				btn.style.borderColor = '#fff';
+		// 			}
+		// 		}).done(() => {
+		// 			that.on('click', like);
+		// 		});
+		// 	}
+		// 	else {
+		// 		$.ajax({
+		// 			method: 'DELETE',
+		// 			url: "{% url 'like' filename %}",
+		// 			success: (response) => {
+		// 				btn.value = 'star';
+		// 				if (response == '/login') {
+		// 					window.location.replace(response);
+		// 					return false;
+		// 				}
+		// 				$('#star').text(` Star(${response})`);
+		// 				btn.style.backgroundColor = '#f0ad4e';
+		// 				btn.style.color = '#fff';
+		// 				btn.style.borderColor = '#f0ad4e';
+		// 			}
+		// 		}).done(() => {
+		// 			that.on('click', like);
+		// 		});
+		// 	}
+		// }
+		"{% endcomment %}"
 		var text = document.getElementById('link');
 		var link = '';
 		const dn = location.host;
 		link += dn;
-		link += "{{url_for('uploaded_file',filename=fdata.file_name)}}"
+		link += "{% url 'notes:download_file' fdata.file_name %}"
 		text.value = link;
 		function myFunction() {
 			text.select();

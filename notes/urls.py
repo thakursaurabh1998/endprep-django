@@ -3,13 +3,15 @@ from . import views
 
 app_name = 'notes'
 urlpatterns = [
-    path('', views.homeHandler, name='homeHandler'),
+    path('', views.home_handler, name='home_handler'),
     path('login/', views.login, name='login'),
-    path('map/', views.map, name='map'),
+    path('maps/', views.maps, name='maps'),
     path('<subject>/topics/', views.topics, name='topics'),
     path('search/', views.search, name='search'),
     path('<subject>/upload/', views.upload, name='upload'),
     path('<subject>/<chapter>/topics/', views.files, name='files'),
-    path('accessfile/<filename>/', views.access_file, name='access_file'),
-    path('download/<filename>', views.uploaded_file, name='uploaded_file'),
+    path('detail/<filename>/', views.file_detail, name='file_detail'),
+    path('download/<filename>/', views.download_file, name='download_file'),
+    path('delete/<filename>/', views.delete_file, name='delete_file'),
+    path('<subject>/edit/<filename>/', views.edit_file, name='edit_file'),
 ]

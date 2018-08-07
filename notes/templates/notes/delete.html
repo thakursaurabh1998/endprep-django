@@ -1,9 +1,10 @@
-{% include "main.html" %}
+{% load static %}
+{% include "notes/main.html" %}
 <title>Delete File</title>
 </head>
 
 <body>
-    {% include "header.html" %}
+    {% include "notes/header.html" %}
     <div class="container content">
         <div class="row">
             <div class="col-md-12">
@@ -11,13 +12,14 @@
             </div>
         </div>
         <div class="row">
-            <form method="post" action="{{url_for('itemDelete', filename=file.file_name)}}">
+            <form method="post" action="{% url 'notes:delete_file' file.file_name %}">
+                {% csrf_token %}
                 <div class="col-md-2">
                     <input type="submit" class="btn btn-danger submitBtn" value="Delete">
                 </div>
             </form>
             <div class="col-md-3">
-                <a class="btn btn-primary submitBtn" href="{{url_for('homeHandler')}}">Cancel</a>
+                <a class="btn btn-primary submitBtn" href="{% url 'notes:home_handler' %}">Cancel</a>
             </div>
         </div>
     </div>

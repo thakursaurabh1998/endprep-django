@@ -1,6 +1,7 @@
 [
   {
     "model": "notes.user",
+    "pk": 1,
     "fields": {
         "name":"Saurabh Thakur",
         "email":"thakursaurabh1998@gmail.com",
@@ -10,6 +11,7 @@
   },
   {
     "model": "notes.user",
+    "pk": 2,
     "fields": {
       "name": "Rishab Thakur",
       "email": "thakurrishab2000@gmail.com",
@@ -19,6 +21,7 @@
   },
   {
     "model": "notes.user",
+    "pk": 3,
     "fields": {
       "name": "Dan Abramov",
       "email": "gaearon@gmail.com",
@@ -121,5 +124,19 @@
           "about": "Introduction to the subject.",
           "subject_name": 6
       }
+  },
+  {
+    "model": "notes.file",
+    "pk": 2,
+    "fields": {
+      "name": "AWS",
+      "file_name": "AWS.pptx",
+      "upload": "uploads/AWS.pptx",
+      "rating": 0,
+      "time": "2018-08-06 18:03:10.775022",
+      "user_id": 1,
+      "chapter_id": 1,
+      "subject_id": 1
+    }
   }
 ]
