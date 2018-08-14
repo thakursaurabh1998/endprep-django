@@ -127,7 +127,7 @@ def edit_file(request, subject, filename):
         subject_name__name__iexact=subject
     ).all()
     if request.method == 'POST':
-        form = forms.UploadForm()
+        form = forms.EditFileForm()
     elif request.method == 'GET':
         topics_list = Topic.objects.filter(
             file_id__id__exact=file.id
